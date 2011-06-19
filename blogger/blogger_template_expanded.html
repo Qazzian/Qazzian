@@ -706,173 +706,166 @@ body.mobile .AdSense {
 					</div>
 				</div>
 
-		<div class='main-outer'>
+				<div class='main-outer'>
+					<div class='fauxborder-left main-fauxborder-left'>
+						<div class='region-inner main-inner'>
+							<div class='columns fauxcolumns'>
+								<!-- corrects IE6 width calculation -->
+								<div class='columns-inner'>
+									<div class='column-center-outer'>
+										<div class='column-center-inner'>
+											<b:section class='main' id='main' showaddelement='no'>
 
-		<div class='fauxborder-left main-fauxborder-left'>
-		<div class='region-inner main-inner'>
+												<b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'>
+													<b:includable id='main' var='top'>
+														<b:if cond='data:mobileindex'>
+															<!-- mobile index -->
+															<div class='blog-posts hfeed'>
+																<b:loop values='data:posts' var='post'>
+																	<b:if cond='data:post.isFirstPost == &quot;false&quot;'>
+																		&lt;/div&gt;
+																	</b:if>
+																	&lt;div class=&quot;mobile-date-outer date-outer&quot;&gt;
+																	<b:include data='post' name='mobile-index-post'/>
+																	<b:if cond='data:post.trackLatency'>
+																		<data:post.latencyJs/>
+																	</b:if>
+																</b:loop>
+																<b:if cond='data:numPosts != 0'>
+																	&lt;/div&gt;
+																</b:if>
+															</div>
+														<b:else/>
+															<!-- posts -->
+															<div class='blog-posts hfeed'>
+																<b:include data='top' name='status-message'/>
+																<data:defaultAdStart/>
+																<b:loop values='data:posts' var='post'>
+																	<b:if cond='data:post.isDateStart'>
+																		<b:if cond='data:post.isFirstPost == &quot;false&quot;'>
+																			&lt;/div&gt;&lt;/div&gt;
+																		</b:if>
+																	</b:if>
+																	<b:if cond='data:post.isDateStart'>
+																		&lt;div class=&quot;date-outer&quot;&gt;
+																	</b:if>
+																	<b:if cond='data:post.dateHeader'>
+																		<h2 class='date-header'><span><data:post.dateHeader/></span></h2>
+																	</b:if>
+																	<b:if cond='data:post.isDateStart'>
+																		&lt;div class=&quot;date-posts&quot;&gt;
+																	</b:if>
+																	<div class='post-outer'>
+																		<b:include data='post' name='post'/>
+																		<b:if cond='data:blog.pageType == &quot;static_page&quot;'>
+																			<b:include data='post' name='comments'/>
+																		</b:if>
+																		<b:if cond='data:blog.pageType == &quot;item&quot;'>
+																			<b:include data='post' name='comments'/>
+																		</b:if>
+																	</div>
+																	<b:if cond='data:post.includeAd'>
+																		<b:if cond='data:post.isFirstPost'>
+																			<data:defaultAdEnd/>
+																		<b:else/>
+																			<data:adEnd/>
+																		</b:if>
+																		<b:if cond='data:mobile == &quot;false&quot;'>
+																			<div class='inline-ad'>
+																				<data:adCode/>
+																			</div>
+																		</b:if>
+																		<data:adStart/>
+																	</b:if>
+																	<b:if cond='data:post.trackLatency'>
+																		<data:post.latencyJs/>
+																	</b:if>
+																</b:loop>
+																<b:if cond='data:numPosts != 0'>
+																	&lt;/div&gt;&lt;/div&gt;
+																</b:if>
+																<data:adEnd/>
+															</div>
+														</b:if>
 
-			<div class='columns fauxcolumns'>
+														<!-- navigation -->
+														<b:if cond='data:mobile'>
+															<b:include name='mobile-nextprev'/>
+														<b:else/>
+															<b:include name='nextprev'/>
+															<!-- feed links -->
+															<b:include name='feedLinks'/>
+														</b:if>
 
-				<!-- corrects IE6 width calculation -->
-				<div class='columns-inner'>
+														<b:if cond='data:top.showStars'>
+															<script src='//www.google.com/jsapi' type='text/javascript'/>
+															<script type='text/javascript'>
+																google.load(&quot;annotations&quot;, &quot;1&quot;, {&quot;locale&quot;: &quot;<data:top.languageCode/>&quot;});
+																function initialize() {
+																	google.annotations.setApplicationId(<data:top.blogspotReviews/>);
+																	google.annotations.createAll();
+																	google.annotations.fetch();
+																}
+																google.setOnLoadCallback(initialize);
+															</script>
+														</b:if>
 
-				<div class='column-center-outer'>
-				<div class='column-center-inner'>
-					<b:section class='main' id='main' showaddelement='no'>
-<b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'>
-<b:includable id='main' var='top'>
+														<b:if cond='data:top.showDummy'>
+															<data:top.dummyBootstrap/>
+														</b:if>
+													</b:includable>
 
-	<b:if cond='data:mobileindex'>
-		<!-- mobile index -->
-		<div class='blog-posts hfeed'>
-			<b:loop values='data:posts' var='post'>
-				<b:if cond='data:post.isFirstPost == &quot;false&quot;'>
-					&lt;/div&gt;
-				</b:if>
-				&lt;div class=&quot;mobile-date-outer date-outer&quot;&gt;
-				<b:include data='post' name='mobile-index-post'/>
-				<b:if cond='data:post.trackLatency'>
-					<data:post.latencyJs/>
-				</b:if>
-			</b:loop>
-			<b:if cond='data:numPosts != 0'>
-				&lt;/div&gt;
-			</b:if>
-		</div>
-	<b:else/>
+													<b:includable id='nextprev'>
+														<div class='blog-pager' id='blog-pager'>
+															<b:if cond='data:newerPageUrl'>
+																<span id='blog-pager-newer-link'>
+																	<a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'><data:newerPageTitle/></a>
+																</span>
+															</b:if>
 
-		<!-- posts -->
-		<div class='blog-posts hfeed'>
+															<b:if cond='data:olderPageUrl'>
+																<span id='blog-pager-older-link'>
+																	<a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'><data:olderPageTitle/></a>
+																</span>
+															</b:if>
 
-			<b:include data='top' name='status-message'/>
+															<a class='home-link' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
 
-			<data:defaultAdStart/>
-			<b:loop values='data:posts' var='post'>
-				<b:if cond='data:post.isDateStart'>
-					<b:if cond='data:post.isFirstPost == &quot;false&quot;'>
-						&lt;/div&gt;&lt;/div&gt;
-					</b:if>
-				</b:if>
-				<b:if cond='data:post.isDateStart'>
-					&lt;div class=&quot;date-outer&quot;&gt;
-				</b:if>
-				<b:if cond='data:post.dateHeader'>
-					<h2 class='date-header'><span><data:post.dateHeader/></span></h2>
-				</b:if>
-				<b:if cond='data:post.isDateStart'>
-					&lt;div class=&quot;date-posts&quot;&gt;
-				</b:if>
-				<div class='post-outer'>
-				<b:include data='post' name='post'/>
-				<b:if cond='data:blog.pageType == &quot;static_page&quot;'>
-					<b:include data='post' name='comments'/>
-				</b:if>
-				<b:if cond='data:blog.pageType == &quot;item&quot;'>
-					<b:include data='post' name='comments'/>
-				</b:if>
-				</div>
-				<b:if cond='data:post.includeAd'>
-					<b:if cond='data:post.isFirstPost'>
-						<data:defaultAdEnd/>
-					<b:else/>
-						<data:adEnd/>
-					</b:if>
-					<b:if cond='data:mobile == &quot;false&quot;'>
-						<div class='inline-ad'>
-							<data:adCode/>
-						</div>
-					</b:if>
-					<data:adStart/>
-				</b:if>
-				<b:if cond='data:post.trackLatency'>
-					<data:post.latencyJs/>
-				</b:if>
-			</b:loop>
-			<b:if cond='data:numPosts != 0'>
-				&lt;/div&gt;&lt;/div&gt;
-			</b:if>
-			<data:adEnd/>
-		</div>
-	</b:if>
+															<b:if cond='data:mobileLinkUrl'>
+																<div class='blog-mobile-link'>
+																	<a expr:href='data:mobileLinkUrl'><data:mobileLinkMsg/></a>
+																</div>
+															</b:if>
+														</div>
+														<div class='clear'/>
+													</b:includable>
 
-	<!-- navigation -->
-	<b:if cond='data:mobile'>
-		<b:include name='mobile-nextprev'/>
-	<b:else/>
-		<b:include name='nextprev'/>
+													<b:includable id='mobile-nextprev'>
+														<div class='blog-pager' id='blog-pager'>
+															<b:if cond='data:newerPageUrl'>
+																<div class='mobile-link-button' id='blog-pager-newer-link'>
+																<a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'>&amp;lsaquo;</a>
+																</div>
+															</b:if>
 
-		<!-- feed links -->
-		<b:include name='feedLinks'/>
-	</b:if>
+															<b:if cond='data:olderPageUrl'>
+																<div class='mobile-link-button' id='blog-pager-older-link'>
+																<a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'>&amp;rsaquo;</a>
+																</div>
+															</b:if>
 
-	<b:if cond='data:top.showStars'>
-		<script src='//www.google.com/jsapi' type='text/javascript'/>
-		<script type='text/javascript'>
-			google.load(&quot;annotations&quot;, &quot;1&quot;, {&quot;locale&quot;: &quot;<data:top.languageCode/>&quot;});
-			function initialize() {
-				google.annotations.setApplicationId(<data:top.blogspotReviews/>);
-				google.annotations.createAll();
-				google.annotations.fetch();
-			}
-			google.setOnLoadCallback(initialize);
-		</script>
-	</b:if>
+															<div class='mobile-link-button' id='blog-pager-home-link'>
+															<a class='home-link' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
+															</div>
 
-	<b:if cond='data:top.showDummy'>
-		<data:top.dummyBootstrap/>
-	</b:if>
+															<div class='mobile-desktop-link'>
+																<a class='home-link' expr:href='data:desktopLinkUrl'><data:desktopLinkMsg/></a>
+															</div>
 
-</b:includable>
-<b:includable id='nextprev'>
-	<div class='blog-pager' id='blog-pager'>
-		<b:if cond='data:newerPageUrl'>
-			<span id='blog-pager-newer-link'>
-			<a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'><data:newerPageTitle/></a>
-			</span>
-		</b:if>
+														</div>
+														<div class='clear'/>
+													</b:includable>
 
-		<b:if cond='data:olderPageUrl'>
-			<span id='blog-pager-older-link'>
-			<a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'><data:olderPageTitle/></a>
-			</span>
-		</b:if>
-
-		<a class='home-link' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
-
-		<b:if cond='data:mobileLinkUrl'>
-			<div class='blog-mobile-link'>
-				<a expr:href='data:mobileLinkUrl'><data:mobileLinkMsg/></a>
-			</div>
-		</b:if>
-
-	</div>
-	<div class='clear'/>
-</b:includable>
-<b:includable id='mobile-nextprev'>
-	<div class='blog-pager' id='blog-pager'>
-		<b:if cond='data:newerPageUrl'>
-			<div class='mobile-link-button' id='blog-pager-newer-link'>
-			<a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'>&amp;lsaquo;</a>
-			</div>
-		</b:if>
-
-		<b:if cond='data:olderPageUrl'>
-			<div class='mobile-link-button' id='blog-pager-older-link'>
-			<a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'>&amp;rsaquo;</a>
-			</div>
-		</b:if>
-
-		<div class='mobile-link-button' id='blog-pager-home-link'>
-		<a class='home-link' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
-		</div>
-
-		<div class='mobile-desktop-link'>
-			<a class='home-link' expr:href='data:desktopLinkUrl'><data:desktopLinkMsg/></a>
-		</div>
-
-	</div>
-	<div class='clear'/>
-</b:includable>
 <b:includable id='post' var='post'>
 	<div class='post hentry uncustomized-post-template'>
 		<a expr:name='data:post.id'/>
@@ -1012,6 +1005,8 @@ body.mobile .AdSense {
 		</div>
 	</div>
 </b:includable>
+
+
 <b:includable id='mobile-index-post' var='post'>
 	<b:if cond='data:post.dateHeader'>
 		<div class='mobile-index-date'>
@@ -1064,6 +1059,8 @@ body.mobile .AdSense {
 		</div>
 	</div>
 </b:includable>
+
+
 <b:includable id='postQuickEdit' var='post'>
 	<b:if cond='data:post.editUrl'>
 		<span expr:class='&quot;item-control &quot; + data:post.adminClass'>
@@ -1073,6 +1070,8 @@ body.mobile .AdSense {
 		</span>
 	</b:if>
 </b:includable>
+
+
 <b:includable id='shareButtons' var='post'>
 	<b:if cond='data:top.showEmailButton'><a class='goog-inline-block share-button sb-email' expr:href='data:post.sharePostUrl + &quot;&amp;target=email&quot;' expr:title='data:top.emailThisMsg' target='_blank'>
 			<span class='share-button-link-text'><data:top.emailThisMsg/></span>
@@ -1227,6 +1226,7 @@ body.mobile .AdSense {
 		</div>
 	</div>
 </b:includable>
+
 <b:includable id='comment-form' var='post'>
 	<div class='comment-form'>
 		<a name='comment-form'/>
@@ -1251,6 +1251,7 @@ body.mobile .AdSense {
 		</script>
 	</div>
 </b:includable>
+
 <b:includable id='backlinks' var='post'>
 	<a name='links'/><h4><data:post.backlinksLabel/></h4>
 	<b:if cond='data:post.numBacklinks != 0'>
@@ -1277,6 +1278,7 @@ body.mobile .AdSense {
 		<a class='comment-link' expr:href='data:post.createLinkUrl' expr:id='data:widget.instanceId + &quot;_backlinks-create-link&quot;' target='_blank'><data:post.createLinkLabel/></a>
 	</p>
 </b:includable>
+
 <b:includable id='feedLinks'>
 	<b:if cond='data:blog.pageType != &quot;item&quot;'> <!-- Blog feed links -->
 		<b:if cond='data:feedLinks'>
