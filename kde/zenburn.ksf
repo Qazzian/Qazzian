@@ -1,0 +1,422 @@
+# Komodo will overwrite this whenever you modify color scheme settings via the Settings dialog.
+# It might be wise to keep a hand-editable version at hand.
+# Save in your Komodo appdata\schemes directory, for example
+#   %PROFILE%\AppData\Roaming\ActiveState\KomodoEdit\5.1\schemes
+# on Windows.
+
+Version = 2
+
+Booleans = {
+	'caretLineVisible': True,
+	'preferFixed': 1,
+	'useSelFore': False
+}
+
+CommonStyles = {
+   'attribute name':{
+      'fore':0x781f87
+   },
+   'attribute value':{
+      'fore':0x2f4f2f
+   },
+   'bracebad':{
+      'back':0x38386b,
+      'fore':0xa0b2b2
+   },
+   'bracehighlight':{
+      'back':0x2e2e2e,
+      'bold':True,
+      'fore':0xa9baba
+   },
+   'classes':{
+      'bold':True,
+      'fore':0xa3dca3
+   },
+   'comments':{
+      'fore':0x7f9f7f,
+      'italic':True
+   },
+   'control characters':{
+      'bold':True,
+      'fore':0xa3a3dc
+   },
+   'default_fixed':{
+      'back':0x1f1f1f,
+      'bold':0x000000,
+      'eolfilled':0x000000,
+      'face':'Consolas',
+      'fore':0xccdcdc,
+      'hotspot':0x000000,
+      'italic':0x000000,
+      'size':0x00000a,
+      'useFixed':0x000001
+   },
+   'default_proportional':{
+      'back':0xffffff,
+      'bold':0x000000,
+      'eolfilled':0x000000,
+      'face':'Verdana',
+      'fore':0x000000,
+      'hotspot':0x000000,
+      'italic':0x000000,
+      'size':0x00000a,
+      'useFixed':0x000000
+   },
+   'fold markers':{
+      'back':0x40403f,
+      'fore':0xa3b389
+   },
+   'functions':{
+      'fore':0x8fefef
+   },
+   'identifiers':{
+      'fore':0xbcdcef
+   },
+   'indent guides':{
+      'fore':0x98bfb6
+   },
+   'keywords':{
+      'bold':True,
+      'fore':0xafdff0
+   },
+   'keywords0x000002':{
+      'fore':0x781f87
+   },
+   'linenumbers':{
+      'fore':0x436363
+   },
+   'numbers':{
+      'fore':0xd3d08c
+   },
+   'operators':{
+      'fore':0xd0eff0
+   },
+   'preprocessor':{
+
+   },
+   'regex':{
+      'fore':0x0064c8
+   },
+   'stderr':{
+
+   },
+   'stdin':{
+
+   },
+   'stdout':{
+
+   },
+   'stringeol':{
+      'fore':0x9393cc
+   },
+   'strings':{
+      'fore':0x9393cc
+   },
+   'tags':{
+      'fore':0xff3200
+   },
+   'utf-8_fixed':{
+      'face':'Consolas'
+   },
+   'variables':{
+      'fore':0x000000
+   }
+}
+
+LanguageStyles = {
+   'Apache':{
+      'directives':{
+         'fore':0x8b8b00
+      },
+      'extensions':{
+         'fore':0x00008b
+      },
+      'ip_addresses':{
+         'fore':0x696969
+      },
+      'parameters':{
+         'fore':0x781f87
+      }
+   },
+   'C#':{
+      'UUIDs':{
+         'fore':0x000000
+      },
+      'commentdockeyword':{
+         'fore':0x000000
+      },
+      'commentdockeyworderror':{
+         'fore':0xdd0000
+      },
+      'globalclass':{
+         'fore':0x8b8b00
+      },
+      'verbatim':{
+         'fore':0x000000
+      }
+   },
+   'C++':{
+      'UUIDs':{
+         'fore':0x000000
+      },
+      'commentdockeyword':{
+         'fore':0x000000
+      },
+      'commentdockeyworderror':{
+         'fore':0xdd0000
+      },
+      'globalclass':{
+         'fore':0x8b8b00
+      },
+      'verbatim':{
+         'fore':0x000000
+      }
+   },
+   'CSS':{
+      'ids':{
+         'fore':0x00008b
+      },
+      'important':{
+         'fore':0x8b0000
+      },
+      'tags':{
+         'fore':0x8b8b00
+      },
+      'values':{
+         'fore':0x781f87
+      }
+   },
+   'Diff':{
+      'additionline':{
+         'fore':0x8b0000
+      },
+      'chunkheader':{
+         'fore':0x8b8b00
+      },
+      'deletionline':{
+         'fore':0x00008b
+      },
+      'diffline':{
+         'fore':0x696969,
+         'italic':0x000001
+      },
+      'fileline':{
+         'fore':0x781f87,
+         'italic':0x000001
+      }
+   },
+   'Errors':{
+      'Error lines':{
+         'fore':0x000066,
+         'hotspot':0x000001,
+         'italic':0x000001
+      }
+   },
+   'HTML':{
+      'attributes':{
+         'fore':0x000066
+      },
+      'cdata':{
+         'fore':0x8b0000
+      }
+   },
+   'IDL':{
+      'UUIDs':{
+         'fore':0x000000
+      },
+      'commentdockeyword':{
+         'fore':0x000000
+      },
+      'commentdockeyworderror':{
+         'fore':0xdd0000
+      },
+      'globalclass':{
+         'fore':0x8b8b00
+      },
+      'verbatim':{
+         'fore':0x000000
+      }
+   },
+   'Java':{
+      'UUIDs':{
+         'fore':0x000000
+      },
+      'commentdockeyword':{
+         'fore':0x000000
+      },
+      'commentdockeyworderror':{
+         'fore':0xdd0000
+      },
+      'globalclass':{
+         'fore':0x8b8b00
+      },
+      'verbatim':{
+         'fore':0x000000
+      }
+   },
+   'JavaScript':{
+      'UUIDs':{
+         'fore':0x000000
+      },
+      'commentdockeyword':{
+         'fore':0x000000
+      },
+      'commentdockeyworderror':{
+         'fore':0xdd0000
+      },
+      'globalclass':{
+         'fore':0x8b8b00
+      },
+      'verbatim':{
+         'fore':0x000000
+      }
+   },
+   'PHP':{
+      'identifiers':{
+         'fore':0x999933
+      },
+      'keywords':{
+         'fore':0x993399
+      },
+      'operators':{
+         'fore':0x000000
+      },
+      'strings':{
+         'fore':0x993333
+      },
+      'variables':{
+         'fore':0x000000
+      }
+   },
+   'Perl':{
+      'here documents':{
+         'bold':0x000001,
+         'fore':0x832323
+      }
+   },
+   'Python':{
+      'decorators':{
+         'fore':0x009900
+      }
+   },
+   'Regex':{
+      'charclass':{
+         'fore':0x2222b2,
+         'italic':0x000001
+      },
+      'charescape':{
+         'fore':0x8b8b00,
+         'italic':0x000001
+      },
+      'charset_operator':{
+         'fore':0x781f87,
+         'size':0x00000c
+      },
+      'comment':{
+         'fore':0x696969,
+         'italic':0x000001
+      },
+      'default':{
+
+      },
+      'eol':{
+
+      },
+      'groupref':{
+         'fore':0x2222b2,
+         'italic':0x000001
+      },
+      'grouptag':{
+         'fore':0x781f87,
+         'size':0x000008
+      },
+      'match_highlight':{
+         'back':0x99ffff
+      },
+      'operator':{
+         'fore':0x781f87,
+         'size':0x00000c
+      },
+      'quantifier':{
+         'bold':0x000001,
+         'fore':0xff0000,
+         'size':0x00000c
+      },
+      'special':{
+         'bold':0x000001,
+         'fore':0xff0000
+      },
+      'text':{
+
+      }
+   },
+   'Rx':{
+      'breakpoints':{
+         'back':0xdddddd
+      },
+      'children':{
+         'back':0xddddcc
+      },
+      'default':{
+         'bold':0x000001
+      },
+      'parents':{
+         'back':0xccffcc
+      }
+   },
+   'Text':{
+
+   },
+   'XML':{
+      'cdata':{
+         'fore':0x8b0000
+      },
+      'cdata content':{
+         'fore':0x8b8b00
+      },
+      'cdata tags':{
+         'fore':0x8b0000
+      },
+      'data':{
+         'fore':0x23238e
+      },
+      'declarations':{
+         'fore':0x33405c
+      },
+      'entity references':{
+         'fore':0x23238e
+      },
+      'pi content':{
+         'fore':0x8b8b00
+      },
+      'pi tags':{
+         'fore':0x8b0000
+      },
+      'prolog':{
+         'fore':0x000000
+      },
+      'xpath attributes':{
+         'fore':0x8b0000
+      },
+      'xpath content':{
+         'fore':0x008cff
+      },
+      'xpath tags':{
+         'fore':0x00000b
+      }
+   }
+}
+
+Colors = {
+   'activeBreakpointColor':0x0808ed,
+   'bookmarkColor':0xdada08,
+   'callingLineColor':0xffccff,
+   'caretFore':0x9faf8f,
+   'caretLineBack':0x121212,
+   'currentLineColor':0xffcccc,
+   'edgeColor': 0x4e4e4e,
+   'foldMarginColor': 0x1f1f1f,
+   'pendingBreakpointColor':0x08af08,
+   'selBack':0x465051,
+   'selFore':0xffeeee
+}
