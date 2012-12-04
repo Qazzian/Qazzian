@@ -1,0 +1,11 @@
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+source ~/.gitrc/git-prompt.sh
+export PS1='\[\e]2;\W\a\]\[\e[1;32;40m\]\u\[\e[0m\] \[\e[1;36;40m\]\w\[\e[1;35;40m\]$(__git_ps1 " (%s)")\[\e[0m\] \$ '
+
+
+
+alias chrome2="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --user-data-dir=~/Library/Application\ Support/Google/Chrome2 --no-first-run --disable-web-security --no-default-browser-check"
+
+alias all='ls -al'
