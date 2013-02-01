@@ -1,0 +1,13 @@
+# This is a snippet that can be added to the generic git precommit hook script
+
+
+# Check for a DONOTCOMMIT flag. Add this to debug only code or files that should not be committed
+if test $(git diff --cached $against | grep ^+ | grep DONOTCOMMIT | wc -l) != 0
+then
+	echo "Error attempting to commit somthing that should not be commited."
+	echo "Part of your commit has been tagged with DONOTCOMMIT."
+	exit 1
+fi
+
+# check all edited javascript files
+git diff --cached --name-only --relative $against | grep \.js$ | xargs jshint
