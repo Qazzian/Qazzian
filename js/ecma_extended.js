@@ -138,16 +138,22 @@ if (window.jQuery)
 /*
  * Useful Underscore extensions
  */
-if (typeof window._ !== 'undefined') { 
+if (typeof window._ !== 'undefined') {
 	/**
 	 * Useful for extending high chart options.
+	 * _.extendDeep(obj1, obj2, ... objn)
+	 * returns obj1 but with copies of the keys from all the other objects in the list of parameters.
+	 * The last object given will override any previous attributes.
+	 * if the value of a ke is an object or array then the contents of it will also be tested and extended.
+	 * Look at the test function below for a better example.
 	 * Do not use on objects with circular references, you will be here all day :)
 	 * Contraversial array implimentation: _.extendDeep(['a', 'b', 'c', 'd'], ['x', 'k']) == ['x', 'k', 'c', 'd']
+	 * if you want to clone an oject just pass an empty obj as the first parameter.
 	 */
 	_.extendDeep = function(obj){
 		_.each(Array.prototype.slice.call(arguments, 1), function(source) {
 			_.each(source, function(value, prop){
-				if ( ! source.hasOwnProperty(prop) ) { 
+				if ( ! source.hasOwnProperty(prop) ) {
 					return;
 				}
 				else if ( _.isObject(source[prop]) ) {
@@ -163,27 +169,30 @@ if (typeof window._ !== 'undefined') {
 		});
 		return obj;
 	};
+
+	_.cloneDeep = function(obj){
+		return _.extendDeep({}, obj);
+	};
 }
 
 
 function testExtendDeep(){
 	return _.extendDeep(
 		{
-			hello: 'world', 
-			obj: {one: 1, two: 2, four: 4, obj: {title: ''}}, 
-			array: ['a', 'b', 'c', 'd'], 
+			hello: 'world',
+			obj: {one: 1, two: 2, four: 4, obj: {title: ''}},
+			array: ['a', 'b', 'c', 'd'],
 			goodbye:'everybody'
-		}, 
+		},
 		{
 			obj:{
-				two: 'too', 
+				two: 'too',
 				three: 3,
 				obj: {title: 'the name'}
-			}, 
-			array: ['x', 'y', 'z'], 
+			},
+			array: ['x', 'y', 'z'],
 			goodbye: 'cruel world'
 		}
 	);
 }
-
 
