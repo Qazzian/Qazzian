@@ -41,6 +41,24 @@ Array.prototype.shuffle = function(){
 };
 
 /**
+ * Extend an object with the propertes from another.
+ * Taken from http://www.nczonline.net/blog/2012/12/11/are-your-mixins-ecmascript-5-compatible/
+ * */
+function mixin(receiver, supplier) {
+    if (Object.keys) {
+        Object.keys(supplier).forEach(function(property) {
+            Object.defineProperty(receiver, property, Object.getOwnPropertyDescriptor(supplier, property));
+        });
+    } else {
+        for (var property in supplier) {
+            if (supplier.hasOwnProperty(property)) {
+                receiver[property] = supplier[property];
+            }
+        }
+    }
+}
+
+/**
  * log()
  *
  * A generic logging function. Sends str to any available debugging consoles
