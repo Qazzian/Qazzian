@@ -7,6 +7,9 @@
 #
 # To enable this hook, rename this file to "pre-commit".
 
+# Required for sourctree to get access to locally installed programs
+PATH="$PATH":/usr/local/bin
+
 # STASH=$(git stash -q --keep-index create)
 
 function abortCommit {
@@ -72,6 +75,7 @@ IFS=$'\n'
 # check all edited javascript files
 JSFILES=$(git diff --cached --name-only --relative $against | grep \.js$)
 JSERRORS=()
+
 # echo $JSFILES
 for FILE in $JSFILES; do
 	JSERRORS+=$(jshint "$FILE")
