@@ -1,11 +1,14 @@
 [url "https://"]
 	insteadOf = git://
-	
+
+[core]
+	autocrlf = input
+	eol = lf
 [alias]
   co = checkout
   ci = commit
   st = status
   br = branch
-  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  ls = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   type = cat-file -t
   dump = cat-file -p
