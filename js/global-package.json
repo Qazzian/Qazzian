@@ -1,0 +1,44 @@
+{
+  "dependencies": {
+    "bower": {
+      "version": "1.4.1",
+      "from": "bower@*",
+      "resolved": "https://registry.npmjs.org/bower/-/bower-1.4.1.tgz"
+    },
+    "documentation": {
+      "version": "1.4.0",
+      "from": "documentation@*",
+      "resolved": "https://registry.npmjs.org/documentation/-/documentation-1.4.0.tgz"
+    },
+    "grunt-cli": {
+      "version": "0.1.13",
+      "from": "grunt-cli@*",
+      "resolved": "https://registry.npmjs.org/grunt-cli/-/grunt-cli-0.1.13.tgz"
+    },
+    "http-server": {
+      "version": "0.8.0",
+      "from": "http-server@*",
+      "resolved": "https://registry.npmjs.org/http-server/-/http-server-0.8.0.tgz"
+    },
+    "jscs": {
+      "version": "1.13.1",
+      "from": "jscs@*",
+      "resolved": "https://registry.npmjs.org/jscs/-/jscs-1.13.1.tgz"
+    },
+    "jshint": {
+      "version": "2.8.0",
+      "from": "jshint@*",
+      "resolved": "https://registry.npmjs.org/jshint/-/jshint-2.8.0.tgz"
+    },
+    "phantomjs": {
+      "version": "1.9.17",
+      "from": "phantomjs@*",
+      "resolved": "https://registry.npmjs.org/phantomjs/-/phantomjs-1.9.17.tgz"
+    },
+    "renamer": {
+      "version": "0.5.5",
+      "from": "renamer@*",
+      "resolved": "https://registry.npmjs.org/renamer/-/renamer-0.5.5.tgz"
+    }
+  }
+}
