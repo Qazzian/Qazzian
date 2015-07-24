@@ -1,11 +1,36 @@
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
+# Common aliases
+
+alias ls="ls --color=auto -a"
+alias ll="ls -al"
+
+
+# Git prompt for unix os's
 source ~/.gitrc/git-prompt.sh
 export PS1='\[\e]2;\W\a\]\[\e[1;32;40m\]\u\[\e[0m\] \[\e[1;36;40m\]\w\[\e[1;35;40m\]$(__git_ps1 " (%s)")\[\e[0m\] \$ '
 
 
+#
+# Git prompt for gitBash on windows
 
-alias chrome2="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --user-data-dir=~/Library/Application\ Support/Google/Chrome2 --no-first-run --disable-web-security --no-default-browser-check"
+# non-printable characters must be enclosed inside \[ and \]
+PS1='\[\033]0;$MSYSTEM:${PWD//[^[:ascii:]]/?}\007\]' # set window title
+PS1="$PS1"'\n'                 # new line
+PS1="$PS1"'\[\033[32m\]'       # change color
+PS1="$PS1"'\u@\h '             # user@host<space>
+PS1="$PS1"'\[\033[33m\]'       # change color
+PS1="$PS1"'\w'                 # current working directory
 
-alias all='ls -al'
+# Remove git bash functions for now as they are really slow on git -version < 2.0
+#if test -z "$WINELOADERNOEXEC"
+#then
+#    PS1="$PS1"'$(__git_ps1)'   # bash function
+#fi
+
+PS1="$PS1"'\[\033[0m\]'        # change color
+PS1="$PS1"'\n'                 # new line
+PS1="$PS1"'$ '                 # prompt: always $
+
+####
