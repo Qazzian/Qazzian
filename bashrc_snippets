@@ -1,5 +1,10 @@
+# colour settings
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
+
+
+# set default tab width
+tabs 4
 
 # Common aliases
 
