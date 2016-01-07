@@ -1,9 +1,16 @@
-[url "https://"]
-	insteadOf = git://
-
+[user]
+  name = 
+  email = 
 [core]
-	autocrlf = input
-	eol = lf
+  autocrlf = input
+  eol = lf
+  excludesfile = ~/.gitignore_global
+[difftool "sourcetree"]
+  cmd = "meld "
+  path = 
+[mergetool "sourcetree"]
+  cmd = meld $LOCAL $REMOTE $BASE
+  trustExitCode = true
 [alias]
   co = checkout
   ci = commit
@@ -12,3 +19,8 @@
   ls = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
   type = cat-file -t
   dump = cat-file -p
+  contains = branch --contains
+[url "https://"]
+  insteadOf = git://
+[push]
+  default = simple
